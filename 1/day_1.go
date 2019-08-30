@@ -10,14 +10,14 @@ import (
 //
 //Bonus: Can you do this in one pass?
 
-func addToK(list []int, k int) (bool) {
+func addToK(list []int, k int) bool {
 	m := make(map[int]bool)
 
 	for _, e := range list {
 		if m[e] {
 			return true
 		}
-		m[k - e] = true
+		m[k-e] = true
 	}
 	return false
 }
@@ -31,4 +31,3 @@ func main() {
 	k2 := 17
 	fmt.Println(addToK(list, k2))
 }
-

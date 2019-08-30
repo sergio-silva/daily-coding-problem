@@ -10,13 +10,27 @@ import (
 //
 //Follow-up: what if you can't use division?
 
-func multiplesList(list []int) ([]int) {
+func multiplesList(list []int) []int {
+	result := make([]int, len(list))
+	product := 1
+
+	for _, e := range list {
+		product *= e
+	}
+
+	for i, e := range list {
+		result[i] = product / e
+	}
+
+	return result
+}
+
+func multiplesListWithoutDivision(list []int) []int {
 	return []int{0}
 }
 
-func multiplesListWithoutDivision(list []int) ([]int) {
-	return []int{0}
-}
-func main () {
-  fmt.Println("Hello World!")
+func main() {
+	list := []int{1, 2, 3, 4, 5}
+	fmt.Println(multiplesList(list))
+	//multiplesListWithoutDivision(list)
 }
